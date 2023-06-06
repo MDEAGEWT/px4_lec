@@ -7,7 +7,7 @@ echo "stopping and removing container"
 docker stop $PS_NAME 2>/dev/null
 docker rm $PS_NAME 2>/dev/null
 
-nvidia_smi_result=$(nvidia-smi)
+nvidia_smi_result=$(nvidia-smi 2>/dev/null)
 
 if docker images | awk -v image_name="mdeagewt/px4" -v image_tag="lec" '$1 == image_name && $2 == image_tag {found=1; exit} END {exit !found}'; then
   if [[ $nvidia_smi_result == *'+'* ]]; then
