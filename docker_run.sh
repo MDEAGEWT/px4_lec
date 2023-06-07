@@ -24,7 +24,7 @@ if docker images | awk -v image_name="stmoon/px4" -v image_tag="lec" '$1 == imag
       --user user \
       --network host \
       --shm-size 4096m \
-      --name $PS_NAME mdeagewt/px4:lec bash
+      --name $PS_NAME stmoon/px4:lec bash
   else
     echo "run docker image without using gpu"
     echo "if you have gpu or gazebo runs with black screen, install nvidia-driver and nvidia-docker"
@@ -39,7 +39,7 @@ if docker images | awk -v image_name="stmoon/px4" -v image_tag="lec" '$1 == imag
       --user user \
       --network host \
       --shm-size 4096m \
-      --name $PS_NAME mdeagewt/px4:lec bash
+      --name $PS_NAME stmoon/px4:lec bash
   fi
 else
     echo "download docker image first using \"docker pull stmoon/px4:1.0\""
